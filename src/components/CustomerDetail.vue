@@ -2,7 +2,7 @@
 import {defineProps} from 'vue';
 import { defineEmits } from 'vue';
 
-const emit = defineEmits(['removeUser']);
+const emit = defineEmits(['removeUser', 'editUser']);
 
 const props = defineProps({
         items: {
@@ -13,6 +13,12 @@ const props = defineProps({
 
 let removeData =(id)=>{
     emit('removeUser', id);
+}
+
+let editUser= (id)=>{
+
+  
+  emit('editUser',id);
 }
 
 </script>
@@ -26,7 +32,7 @@ let removeData =(id)=>{
       <td>{{ item.address }}</td>
       <td>{{ item.email }}</td>
       <td><button v-on:click="removeData(item.id)">X</button>
-        <!-- <button @click="h">🖊️</button> -->
+        <button @click="editUser(item.id)" >🖊️</button>
       </td>
     </tr>
   </table>

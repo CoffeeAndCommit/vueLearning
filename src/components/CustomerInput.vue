@@ -72,14 +72,23 @@ let addData = ()=>{
        
    
     }else{
-        if(!firstName.value.trim())
-        alert('Value is required for First Name');
-        if(!lastName.value.trim())
-        alert('Value is required for Last Name');
-        if(!address.value.trim())
-        alert('Value is required for Address');
-        if(!email.value)
-        alert('Value is required for Email');
+        let messages = [];
+
+if (!firstName.value.trim()) {
+  messages.push('First Name is required');
+}
+if (!lastName.value.trim()) {
+  messages.push('Last Name is required');
+}
+if (!address.value.trim()) {
+  messages.push('Address is required');
+}
+if (!email.value.trim()) {
+  messages.push('Email is required');
+}
+if (messages.length > 0) {
+  alert(messages.join('\n'));
+}
 
     }
 
