@@ -44,15 +44,11 @@ function editUser(id){
     
     }
 function editUserValue(editedValue){
-    console.log('1'+editedValue.firstname);
-    console.log('1'+editedValue.id);
         showedit.value = false;
         const index = items.value.findIndex(item => item.id === editedValue.id);
         if (index !== -1) {
             items.value.splice(index, 1, { ...editedValue });
         }
-
-        console.log('2' + items.value[0].firstname); 
         
     }
 

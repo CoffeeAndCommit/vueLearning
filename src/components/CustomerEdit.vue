@@ -87,6 +87,8 @@ body {
   width: 400px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   position: relative;
+  margin: auto;
+  margin-top: 100px;
 }
 
 .modal h2 {
