@@ -22,6 +22,7 @@ const items = ref([
 ]);
 
 function addUserData(userData){
+    console.log(userData);
     items.value.push(userData);   
 }
 function removeUserData(id){

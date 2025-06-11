@@ -15,6 +15,13 @@
             <label for="lastname"></label>
             <input type="text" id="lastname" placeholder="Enter Last Name" v-model="lastName" >
         </div>
+        <div class="email text">
+            <span>Email</span>
+        </div>
+        <div class="emailinput">
+            <input type="email" id="email" placeholder="Enter Email"    v-model="email">
+        
+        </div>
         <div class="ad text">
             <span>Address</span>
         </div>
@@ -24,6 +31,7 @@
         
         <div class="add">
             <button @click="addData">Add</button>
+   
         </div>
       
     </div>
@@ -38,22 +46,47 @@ const emit = defineEmits(['addUser']);
 let firstName = ref('');
 let lastName = ref('');
 let address = ref('');
+let email = ref('');
+
 
 
 let addData = ()=>{
     console.log("clicked");
-    let  userData = {
+    if(firstName.value.trim() && lastName.value.trim() && address.value.trim() && email.value ){
+        if(email.value.includes('@gmail') && email.value.includes('.com')){
+            let  userData = {
         firstname: firstName.value,
         lastname: lastName.value,
         address: address.value,
+        email: email.value,
         id: new Date().getTime(),
-      };
-
-     
-      emit('addUser', userData);
-      
+        };
+        emit('addUser', userData);
+        firstName.value ='';
+        lastName.value ='';
+        address.value ='';
+        email.value ='';
+        }else{
+            alert('Invalid Email');
+        }
+       
    
-}
+    }else{
+        if(!firstName.value.trim())
+        alert('Value is required for First Name');
+        if(!lastName.value.trim())
+        alert('Value is required for Last Name');
+        if(!address.value.trim())
+        alert('Value is required for Address');
+        if(!email.value)
+        alert('Value is required for Email');
+
+    }
+
+        
+  
+      
+   }
 
 
 </script>
@@ -73,6 +106,6 @@ let addData = ()=>{
     padding: 1rem; /* Optional: for spacing */
   }
   input{
-    width: 18vw;
+    width: 13vw;
   }
 </style>

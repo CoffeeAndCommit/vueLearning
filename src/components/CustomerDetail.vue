@@ -24,7 +24,10 @@ let removeData =(id)=>{
       <td>{{ item.firstname }}</td>
       <td>{{ item.lastname }}</td>
       <td>{{ item.address }}</td>
-      <td><button v-on:click="removeData(item.id)">X</button></td>
+      <td>{{ item.email }}</td>
+      <td><button v-on:click="removeData(item.id)">X</button>
+        <!-- <button @click="h">🖊️</button> -->
+      </td>
     </tr>
   </table>
  
@@ -45,7 +48,7 @@ td {
   font-weight: 500;   
 }
 td:nth-child(1), td:nth-child(2), td:nth-child(3){
-  width: 22vw;
+  width: 20vw;
 }
 td:nth-child(4){
   width: 10vw;
@@ -57,5 +60,8 @@ table tr:nth-child(1), table tr:nth-child(3) {
 }
 table tr{
   background-color: #D8CD8D;
+}
+button{
+margin-right: 10px;
 }
 </style>
