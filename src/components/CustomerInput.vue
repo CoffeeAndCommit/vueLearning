@@ -24,6 +24,7 @@
         
         <div class="add">
             <button @click="addData">Add</button>
+   
         </div>
       
     </div>
@@ -42,15 +43,21 @@ let address = ref('');
 
 let addData = ()=>{
     console.log("clicked");
-    let  userData = {
+    if(firstName.value.trim() !== '' && lastName.value.trim() !== '' && address.value.trim() !== ''){
+        let  userData = {
         firstname: firstName.value,
         lastname: lastName.value,
         address: address.value,
         id: new Date().getTime(),
-      };
-
-     
-      emit('addUser', userData);
+        };
+        emit('addUser', userData);
+        firstName.value ='';
+        lastName.value ='';
+        address.value ='';
+    }else{
+        alert('Fill The Value')
+    }
+  
       
    
 }
